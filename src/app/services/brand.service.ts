@@ -4,13 +4,13 @@ import { Observable } from 'rxjs';
 import { BrandResponseModel } from '../models/brandResponseModel';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BrandService {
-  apiUrl= "https://localhost:44306/api/brands/getall"
-  constructor(private httpCLient:HttpClient) { }
+  apiUrl = 'https://localhost:44306/api/brands/getall';
+  constructor(private httpCLient: HttpClient) {}
 
-  getBrands():Observable<BrandResponseModel>{
+  getBrands(): Observable<BrandResponseModel> {
     return this.httpCLient.get<BrandResponseModel>(this.apiUrl);
   }
 }

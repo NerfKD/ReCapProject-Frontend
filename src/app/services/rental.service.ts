@@ -4,13 +4,13 @@ import { Observable } from 'rxjs';
 import { RentalResponseModel } from '../models/rentalResponseModel';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RentalService {
-  apiUrl = "https://localhost:44306/api/rentals/getrentals"
-  constructor(private httpClient:HttpClient) { }
+  apiUrl = 'https://localhost:44306/api/rentals/getrentals';
+  constructor(private httpClient: HttpClient) {}
 
-  getRentals():Observable<RentalResponseModel>{
+  getRentals(): Observable<RentalResponseModel> {
     return this.httpClient.get<RentalResponseModel>(this.apiUrl);
   }
 }

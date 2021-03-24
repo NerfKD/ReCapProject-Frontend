@@ -1,13 +1,12 @@
 <table class="table">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Marka Adı</th>
-      </tr>
-    </thead>
-    <tr *ngFor="let brand of brands">
-      <td>{{ brand.brandId }}</td>
-      <td>{{ brand.brandName }}</td>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Marka Adı</th>
     </tr>
-  </table>
-  
+  </thead>
+  <tr *ngFor="let brand of brands">
+    <td>{{ brand.brandId }}</td>
+    <td>{{ brand.brandName }}</td>
+  </tr>
+</table>
