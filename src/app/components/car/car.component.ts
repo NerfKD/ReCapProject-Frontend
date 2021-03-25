@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Car } from 'src/app/models/car';
 import { CarService } from 'src/app/services/car.service';
 
@@ -13,7 +13,8 @@ export class CarComponent implements OnInit {
   cars: Car[] = [];
   constructor(
     private carService: CarService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router:Router
   ) {}
 
   ngOnInit(): void {
@@ -45,5 +46,9 @@ export class CarComponent implements OnInit {
     this.carService.getCarsByColor(colorId).subscribe((response) => {
       this.cars = response.data;
     });
+  }
+
+  goToImage(carId:number){
+    this.router.navigate(['./carimage',carId])
   }
 }

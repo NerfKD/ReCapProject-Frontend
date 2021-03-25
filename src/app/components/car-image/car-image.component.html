@@ -1,16 +1,15 @@
-<a href="./cars">
-  <button type="button" class="btn-close" aria-label="Close"></button>
-</a>
-
+<button
+  type="button"
+  class="btn-close"
+  aria-label="Close"
+  (click)="goToCars()"
+></button>
 <div
   id="carImageSlide"
   class="carousel slide carousel-fade"
   data-bs-ride="carousel"
 >
-  <div
-    class="carousel-inner d-flex"
-    style="height: 70vh; width: 80vh;"
-  >
+  <div class="carousel-inner d-flex" style="height: 70vh; width: 80vh">
     <div
       *ngFor="let carImage of carImages; index as i; first as firstImage"
       class="carousel-item align-self-center"
