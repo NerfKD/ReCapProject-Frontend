@@ -28,12 +28,4 @@ export class CarImageComponent implements OnInit {
       this.carImages = response.data;
     });
   }
-
-  getSliderClassName(index:number){
-    if(index == 0){
-      return "carousel-item active";
-    } else {
-      return "carousel-item";
-    }
-  }
 }

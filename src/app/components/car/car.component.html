@@ -7,14 +7,16 @@
       <th>Model</th>
       <th>Fiyat</th>
       <th>Açıklama</th>
+      <th>Resim</th>
     </tr>
   </thead>
   <tr *ngFor="let car of cars"  (click)=(true)>
-        <td><a href="./carimage/{{car.id}}">{{ car.id }}</a></td>
+        <td>{{ car.id }}</td>
         <td>{{ car.brandName }}</td>
         <td>{{ car.colorName }}</td>
         <td>{{ car.modelYear }}</td>
         <td>{{ car.dailyPrice }}</td>
         <td>{{ car.description }}</td>
+        <td><a href="./carimage/{{car.id}}"><button type="button" class="btn btn-info">Resimlere git..</button></a></td>
   </tr>
 </table>
