@@ -1,4 +1,14 @@
 <ul class="list-group">
+  <li class = "list-group-item">
+    <input
+      type="text"
+      [(ngModel)]="filterText"
+      class="form-control"
+      id="filterTextColor"
+      placeholder="Renk giriniz.."
+    />
+  </li>
+
   <li
     (click)="setCurrentColorClear()"
     [class]="getAllColorClass()"
@@ -9,7 +19,7 @@
   <li
     (click)="setCurrentColor(color)"
     routerLink="/cars/color/{{ color.colorId }}"
-    *ngFor="let color of colors"
+    *ngFor="let color of colors | filterPipeColor: filterText"
     [class]="getCurrentColorClass(color)"
   >
     {{ color.colorName }}

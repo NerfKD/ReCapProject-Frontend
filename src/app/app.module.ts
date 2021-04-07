@@ -1,5 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,8 +15,13 @@ import { ColorComponent } from './components/color/color.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { CustomerComponent } from './components/customer/customer.component';
-import { HttpClientModule } from '@angular/common/http';
-import { CarImageComponent } from './components/car-image/car-image.component';
+import { FilterPipePipe } from './pipes/filter-pipe-car.pipe';
+import { FilterPipeColorPipe } from './pipes/filter-pipe-color.pipe';
+import { FilterPipeBrandPipe } from './pipes/filter-pipe-brand.pipe';
+import { CarDetailsComponent } from './components/car-details/car-details.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { ToastrModule } from 'ngx-toastr';
+import { CardModule } from 'ngx-card/ngx-card';
 
 @NgModule({
   declarations: [
@@ -21,14 +32,25 @@ import { CarImageComponent } from './components/car-image/car-image.component';
     RentalComponent,
     NaviComponent,
     CustomerComponent,
-    CarImageComponent
+    FilterPipePipe,
+    FilterPipeColorPipe,
+    FilterPipeBrandPipe,
+    CarDetailsComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({ 
+      positionClass: 'toast-bottom-right' 
+    }),
+    ReactiveFormsModule,
+    CardModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

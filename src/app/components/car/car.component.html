@@ -1,3 +1,40 @@
+<div class="col-md-12">
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterTextCar"
+    placeholder="Arama ifadesi giriniz.."
+  />
+</div>
+
+<table class="table-borderless">
+  <tbody>
+    <tr class="col-md-12">
+      <td class="col-md-11">
+        <select  class="form-select" aria-label="Marka secimi" [(ngModel)]="selectedBrandId" >
+          <option [value]="0">Tüm Markalar</option>
+          <option *ngFor="let brand of brands" [value]="brand.brandId">{{brand.brandName}}</option>
+        </select>
+      </td>
+      <td class="col-md-1">
+        <button type="button" class="btn btn-success" (click)="getCarsByBrand(selectedBrandId)" >Filtrele</button>
+      </td>
+    </tr>
+    <tr class="col-md-12">
+      <td class="col-md-11">
+        <select class="form-select" aria-label="Renk secimi" [(ngModel)]="selectedColorId" >
+          <option [value]="0">Tüm Renkler</option>
+          <option *ngFor="let color of colors" [value]="color.colorId" >{{color.colorName}}</option>
+        </select>
+      </td>
+      <td class="col-md-1">
+        <button type="button" class="btn btn-success" (click)="getCarsByColor(selectedColorId)" >Filtrele</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 <table class="table table-bordered border">
   <thead>
     <tr>
@@ -10,13 +47,16 @@
     </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let car of cars" (click)='goToImage(car.id)'>
-        <td>{{ car.id }}</td>
-        <td>{{ car.brandName }}</td>
-        <td>{{ car.colorName }}</td>
-        <td>{{ car.modelYear }}</td>
-        <td>{{ car.dailyPrice }}</td>
-        <td>{{ car.description }}</td>
-  </tr>
-</tbody>
+    <tr
+      *ngFor="let car of cars | filterPipeCar: filterText"
+      (click)="goToDetail(car.id)"
+    >
+      <td>{{ car.id }}</td>
+      <td>{{ car.brandName }}</td>
+      <td>{{ car.colorName }}</td>
+      <td>{{ car.modelYear }}</td>
+      <td>{{ car.dailyPrice }}</td>
+      <td>{{ car.description }}</td>
+    </tr>
+  </tbody>
 </table>

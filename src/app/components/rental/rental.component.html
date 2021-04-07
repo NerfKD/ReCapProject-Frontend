@@ -1,18 +1,40 @@
-<table class="table">
-  <thead>
+<table class="table table-dark table-striped">
+  <thead >
     <tr>
-      <th>Id</th>
       <th>Araç</th>
       <th>Kirayalan</th>
       <th>Kira Başlangıç</th>
       <th>Kira Bitiş</th>
     </tr>
   </thead>
-  <tr *ngFor="let rental of rentals">
-    <td>{{ rental.id }}</td>
-    <td>{{ rental.carName }}</td>
-    <td>{{ rental.fullName }}</td>
-    <td>{{ rental.rentDate }}</td>
-    <td>{{ rental.returnDate }}</td>
-  </tr>
+  <tbody>
+    <tr *ngFor="let rental of rentals">
+      <td>{{ rental.carName }}</td>
+      <td>{{ rental.fullName }}</td>
+      <td>{{ rental.rentDate | date: "dd/MM/yyyy HH:mm" }}</td>
+      <td>{{ rental.returnDate | date: "dd/MM/yyyy HH:mm" }}</td>
+    </tr>
+  </tbody>
 </table>
+
+<table class ="table table-bordered" >
+  <thead>
+    <tr>
+      <th class="col-md-1">Kiralama Tarihi</th>
+      <th class="col-md-1">Teslim Tarihi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="col-md-1"><input type="datetime-local" [ngModel] ="dtBegin" (ngModelChange)="dtBegin = $event" (change)="onChangeEvent($event)"></td>
+      <td class="col-md-1"><input type="datetime-local" [ngModel] ="dtEnd"  disabled="{{ !firstDateSelected }}" (ngModelChange)="dtEnd = $event" ></td>
+      <td class="col-md-10" >
+        <button type="button" style="float: left;" class="btn btn-warning" (click)="checkDateAndGoToPayment()" >Kirala</button>
+        <button type="button" style="float: right;" class="btn btn-danger" (click)="goToCars()" >Geri</button>
+      </td>
+      
+    </tr>
+  </tbody>
+</table>
+
+
