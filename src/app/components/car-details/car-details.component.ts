@@ -13,6 +13,12 @@ import { CarImageService } from 'src/app/services/car-image.service';
 export class CarDetailsComponent implements OnInit {
   carDetail: Car | null;
   carImages: CarImage[] = [];
+  carName: string;
+  carModel: number;
+  carPrice: number;
+  carDesc: string;
+  carColor: string;
+
   apiUrl: string = 'https://localhost:44306';
   constructor(
     private carDetailsService: CarDetailsService,
@@ -26,6 +32,7 @@ export class CarDetailsComponent implements OnInit {
       if (params['id']) {
         this.getCarDetailByCarId();
         this.getImageByCarId();
+        
       }
     });
   }
@@ -35,6 +42,11 @@ export class CarDetailsComponent implements OnInit {
       .getCarDetailByCarId(this.activatedRoute.snapshot.params['id'])
       .subscribe((response) => {
         this.carDetail = response.data;
+        this.carName = this.carDetail.brandName;
+        this.carModel = this.carDetail.modelYear;
+        this.carPrice = this.carDetail.dailyPrice;
+        this.carDesc = this.carDetail.description;
+        this.carColor = this.carDetail.colorName;
       });
   }
 

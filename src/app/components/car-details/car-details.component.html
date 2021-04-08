@@ -41,18 +41,18 @@
     </div>
   </div>
   <div class="card-body col-md-12">
-    <h5 class="card-title">
-      <b>{{ carDetail.brandName }}</b>
-    </h5>
-    <p class="card-text">{{ carDetail.modelYear }}</p>
+    <h1 class="card-title">
+      <b>{{ carName }}</b>
+    </h1>
+    <p class="card-text">{{ carModel }}</p>
   </div>
   <ul class="list-group list-group-flush col-md-12">
-    <li class="list-group-item"><b>Renk:</b> {{ carDetail.colorName }}</li>
+    <li class="list-group-item"><b>Renk:</b> {{ carColor}}</li>
     <li class="list-group-item">
-      <b>Fiyat:</b> {{ carDetail.dailyPrice | number: "1.0-0" }} TL
+      <b>Fiyat:</b> {{ carPrice | number: "1.0-0" }} TL
     </li>
     <li class="list-group-item">
-      <b>Açıklama:</b> {{ carDetail.description }}
+      <b>Açıklama:</b> {{ carDesc }}
     </li>
   </ul>
   <div class="card-body col-md-12">

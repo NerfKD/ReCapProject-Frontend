@@ -2,7 +2,13 @@
 <table class = "table table-borderless col-md-1 mb-1" style=" width:25rem;">
   <thead >
     <tr>
-    <th style="padding:0px; padding-top: 50px; margin-bottom: 1px; text-align: center;"><h1><b>Ödeme İşlemi</b></h1></th>
+    <th style="padding:0px; padding-top: 50px; margin-bottom: 1px; margin-left: 3px; text-align: center;">
+      <h1><b>Ödeme İşlemi  {{ totalPrice | number: "1.0-0" }} TL</b>
+      </h1>
+      
+  </tr>
+  <tr>
+      <th><img class="img-responsive cc-img" style=" width:26.5rem;" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png"></th>
   </tr>
 </thead>
 </table>
@@ -14,8 +20,11 @@
   </thead>
   <tbody>
     <tr >
-      <td class="col-md-12">
-         <input type="text" class="form-control is-invalid" id="validationTooltip01"required>
+      <td>
+         <input type="text" class="form-control" id="validationTooltip01" [(ngModel)]="cardHoldersName"  required>
+         <div class="invalid-feedback">
+          Kart sahibinin ad-soyad bilgisini giriniz. (Ahmet Cenk)
+        </div>
         </td>
     </tr>
   </tbody>
@@ -30,7 +39,12 @@
   </thead>
   <tbody>
     <tr>
-      <td><input type="text" class="form-control is-invalid" id="validationTooltip03" required></td>
+      <td>
+        <input type="text" class="form-control" id="validationTooltip02" [(ngModel)]="cardNumber" required>
+        <div class="invalid-feedback">
+          Doğru bir kart numarasını giriniz. (5556444788893332)
+        </div>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -46,9 +60,21 @@
   </thead>
   <tbody>
     <tr>
-    <td><input type="text" class="form-control is-invalid" id="validationTooltip03" required></td>
-    <td><input type="text" class="form-control is-invalid" id="validationTooltip03"  required></td>
-    <td><input type="text" class="form-control is-invalid" id="validationTooltip03"  required></td>
+    <td>
+      <input type="text" class="form-control" id="validationTooltip03" [(ngModel)]="cardExpirationMonth"  required>
+      <div class="invalid-feedback">
+        Ay giriniz giriniz. (03)
+      </div></td>
+    <td>
+      <input type="text" class="form-control" id="validationTooltip04" [(ngModel)]="cardExpirationYear"  required>
+      <div class="invalid-feedback">
+        Yıl giriniz. (2025)
+      </div></td>
+    <td>
+      <input type="text" class="form-control" id="validationTooltip05" [(ngModel)]="cardCvcNumber"  required>
+      <div class="invalid-feedback">
+        CVC giriniz. (579)
+      </div></td>
   </tr>
   </tbody>
 </table>
@@ -56,7 +82,7 @@
 <table class = "table table-borderless col-md-1 mb-1" style=" width:25rem;">
   <tbody >
     <tr>
-    <td style="padding:0px; padding-top: 4px;"><button class="btn btn-primary" style="float: right; width: 26.8rem;" >Öde</button></td>
+    <td style="padding:0px; padding-top: 4px;"><button class="btn btn-primary" style="float: right; width: 26.8rem;" (click)="paymentRent()" >Öde</button></td>
   </tr>
   </tbody>
 </table>

@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let rental of rentals">
+    <tr *ngFor="let rental of rentalsDto">
       <td>{{ rental.carName }}</td>
       <td>{{ rental.fullName }}</td>
       <td>{{ rental.rentDate | date: "dd/MM/yyyy HH:mm" }}</td>

@@ -6,6 +6,7 @@ import { RentalService } from 'src/app/services/rental.service';
 import { CarDetailsService } from 'src/app/services/car-details.service';
 import { Car } from 'src/app/models/car';
 import { ToastrService } from 'ngx-toastr';
+import { Rental } from 'src/app/models/rental';
 
 @Component({
   selector: 'app-rental',
@@ -13,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./rental.component.css'],
 })
 export class RentalComponent implements OnInit {
-  rentals: RentalDto[] = [];
+  rentalsDto: RentalDto[] = [];
   carDetail: Car | null;
   dtBegin: Date | null = null;
   dtEnd: Date | null = null;
@@ -45,9 +46,9 @@ export class RentalComponent implements OnInit {
 
   getRentalsById() {
     this.rentalService
-      .getRentalsById(this.activatedRoute.snapshot.params['id'])
+      .getRentalsDtoById(this.activatedRoute.snapshot.params['id'])
       .subscribe((response) => {
-        this.rentals = response.data;
+        this.rentalsDto = response.data;
       });
   }
   getCarDetailsById() {
@@ -59,25 +60,17 @@ export class RentalComponent implements OnInit {
   }
 
   checkDateAndGoToPayment() {
-    let NewRental: RentalDto = {
+    let NewRental: Rental = {
       carId: Number(this.activatedRoute.snapshot.params['id']),
       customerId: 1,
-      carName: this.carDetail.brandName,
-      fullName: 'Kerim Dinçer',
       rentDate: this.dtBegin,
       returnDate: this.dtEnd,
     };
     localStorage.setItem("rental",JSON.stringify(NewRental))
 
-    console.log(this.dtBegin);
-    console.log(this.dtEnd);
-    if (this.dtBegin != null && this.dtEnd != null) {
-      console.log(this.dtBegin);
-      console.log(this.dtEnd);
+    if (this.dtBegin != null && this.dtEnd != null && this.dtEnd > this.dtBegin) {
       this.rentalService.rentalDateCheck(NewRental).subscribe((response) => {
-        console.log(response);
         if (response.success) {
-          console.log(response);
           this.router.navigate(['./payment/'+ this.activatedRoute.snapshot.params['id']]);
         } 
       }, (error) =>{
