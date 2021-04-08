@@ -2,10 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
-
+import { FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +18,6 @@ import { FilterPipeBrandPipe } from './pipes/filter-pipe-brand.pipe';
 import { CarDetailsComponent } from './components/car-details/car-details.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { ToastrModule } from 'ngx-toastr';
-import { CardModule } from 'ngx-card/ngx-card';
 
 @NgModule({
   declarations: [
@@ -44,11 +40,9 @@ import { CardModule } from 'ngx-card/ngx-card';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot({ 
-      positionClass: 'toast-bottom-right' 
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
     }),
-    ReactiveFormsModule,
-    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent],

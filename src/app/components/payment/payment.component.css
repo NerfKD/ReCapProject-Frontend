@@ -1,15 +1,4 @@
-.full-width {
-    width: 100%;
-  }
-  
-  .card-margin {
-    margin: 5%;
-  }
-  
-  .btn-reg {
-    background: rgb(62, 150, 153);
-  }
-  
-  .warn{
-    color: red;
-  }
+.table {
+  margin: auto;
+  width: 50% !important; 
+}
