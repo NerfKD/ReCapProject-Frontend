@@ -93,7 +93,7 @@ export class PaymentComponent implements OnInit {
       this.paymentService.rentalAdd(payment).subscribe(
         (response) => {
           if (response.success) {
-            this.toastrService.error(response.message, 'Ödeme tamamlandı');
+            this.toastrService.success(response.message, 'Ödeme tamamlandı');
             this.router.navigate([
               './carrental',
               this.activatedRoute.snapshot.params['id'],
