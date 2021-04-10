@@ -1,0 +1,47 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><h1 class="title"><b>Araba</b></h1></div>
+            <div class="card-body">
+                <form [formGroup]="carSetForm">
+                    <div class="form-group">
+                        <div class="mb-3">
+                            <label for="id" style="display: none;"><b>Id</b></label>
+                            <input type="number" id="id" formControlName="id" class="form-control" style="display: none;" [(ngModel)]="id" [disabled]="true"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="brandId"><b>Marka</b></label>
+                            <select type ="number" id="brandId" class="form-select" aria-label="Marka secimi" formControlName="brandId" [(ngModel)]="brandId" >
+                                <option value="" disabled selected>Seçiniz..</option>
+                                <option *ngFor="let brand of brands" [ngValue]="brand.brandId">{{brand.brandName}}</option>
+                              </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="colorId"><b>Renk</b></label>
+                            <select id="colorId" class="form-select" aria-label="Renk secimi" formControlName="colorId" [(ngModel)]="colorId" >
+                                <option value="" disabled selected>Seçiniz..</option>
+                                <option *ngFor="let color of colors" [ngValue]="color.colorId" >{{color.colorName}}</option>
+                              </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modelYear"><b>Model Yılı</b></label>
+                            <input type="number" id="modelYear" formControlName="modelYear" class="form-control" [(ngModel)]="modelYear"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dailyPrice"><b>Günlük Ücret</b></label>
+                            <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control" [(ngModel)]="dailyPrice"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description"><b>Açıklama</b></label>
+                            <input type="text" id="description" formControlName="description" class="form-control" [(ngModel)]="description"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill" style="background-color: #90c6eb;" (click)="update()"><b>Güncelle</b></button>
+                <button class="btn btn-fill" style="background-color: #90c6eb; float: right;" (click)="goToCarDetail()"><b>Geri</b></button>
+            </div>
+        </div>
+    </div>
+</div>

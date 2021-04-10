@@ -1,88 +1,107 @@
 
-<table class = "table table-borderless col-md-1 mb-1" style=" width:25rem;">
-  <thead >
-    <tr>
-    <th style="padding:0px; padding-top: 50px; margin-bottom: 1px; margin-left: 3px; text-align: center;">
-      <h1><b>Ödeme İşlemi  {{ totalPrice | number: "1.0-0" }} TL</b>
-      </h1>
-      
-  </tr>
-  <tr>
-      <th><img class="img-responsive cc-img" style=" width:26.5rem;" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png"></th>
-  </tr>
-</thead>
-</table>
-<table class = "table table-bordered col-md-1 mb-1 align-center" style="border:lightslategrey; width:25rem" >
-  <thead>
-    <tr >
-      <th> <label for="validationTooltip01">Kart Sahibi</label></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr >
-      <td>
-         <input type="text" class="form-control" id="validationTooltip01" [(ngModel)]="cardHoldersName"  required>
-         <div class="invalid-feedback">
-          Kart sahibinin ad-soyad bilgisini giriniz. (Ahmet Cenk)
-        </div>
-        </td>
-    </tr>
-  </tbody>
-</table>
+<div class="card" style="width: 40rem;">
+  <div class="card-header" style="padding: 0px;">
+    <table class = "table table-borderless">
+      <thead >
+        <tr>
+        <th style="padding:0px; padding-top: 50px; margin-bottom: 1px; text-align: center;">
+          <h1><b>Ödeme İşlemi</b></h1>
+          </th>
+      </tr>
+      <tr>
+          <th><img style="width: 40rem;" class="img-responsive cc-img" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png"></th>
+      </tr>
+    </thead>
+    </table>
+  </div>
+  <div class="card-body">
 
-      
-<table class = "table table-bordered col-md-1 mb-1" style="border:lightslategrey;  width:25rem">
-  <thead>
-    <tr>
-      <th><label for="validationTooltip02">Kart No</label></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <input type="text" class="form-control" id="validationTooltip02" [(ngModel)]="cardNumber" required>
-        <div class="invalid-feedback">
-          Doğru bir kart numarasını giriniz. (5556444788893332)
-        </div>
-      </td>
-    </tr>
-  </tbody>
-</table>
+    <table class = "table table-bordered" style="border:lightslategrey;" >
+      <thead>
+        <tr >
+          <th> <label for="validationTooltip01">Kart Sahibi</label></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr >
+          <td>
+             <input type="text" class="form-control" id="validationTooltip01" [(ngModel)]="cardHoldersName"  required>
+             <div class="invalid-feedback">
+              Kart sahibinin ad-soyad bilgisini giriniz. (Ahmet Cenk)
+            </div>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+    
+          
+    <table class = "table table-bordered " style="border:lightslategrey;">
+      <thead>
+        <tr>
+          <th><label for="validationTooltip02">Kart No</label></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="text" class="form-control" id="validationTooltip02" [(ngModel)]="cardNumber" required>
+            <div class="invalid-feedback">
+              Doğru bir kart numarasını giriniz. (5556444788893332)
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    
+    <table class = "table table-bordered " style="border:lightslategrey; ">
+      <thead>
+        <tr>
+          <th><label for="validationTooltip03">Ay</label></th>
+          <th><label for="validationTooltip04">Yıl</label></th>
+          <th><label for="validationTooltip05">CVC</label></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+        <td>
+          <input type="text" class="form-control" id="validationTooltip03" [(ngModel)]="cardExpirationMonth"  required>
+          <div class="invalid-feedback">
+            Ay giriniz giriniz. (03)
+          </div></td>
+        <td>
+          <input type="text" class="form-control" id="validationTooltip04" [(ngModel)]="cardExpirationYear"  required>
+          <div class="invalid-feedback">
+            Yıl giriniz. (2025)
+          </div></td>
+        <td>
+          <input type="text" class="form-control" id="validationTooltip05" [(ngModel)]="cardCvcNumber"  required>
+          <div class="invalid-feedback">
+            CVC giriniz. (579)
+          </div></td>
+      </tr>
+      </tbody>
+    </table>
+    
+  </div>
+  <div class="card-footer text-center">
+    <table class = "table table-borderless">
+      <tbody>
+        <tr>
+        <td style="padding:0px; padding-top: 12px;"><button  style="background-color: #90c6eb; float: left"  type="button" class="btn btn-theme"  (click)="paymentRent()" ><b>Öde</b></button></td>
+
+        <td style="padding-top: 20px; font-size: 25px;"><b> Toplam tutar: {{ totalPrice | number: "1.0-0" }} TL</b></td>
+        <td style="float: right; padding:0px; padding-top: 12px;"><button  style="background-color: #90c6eb;"  type="button" class="btn btn-theme"  (click)="goToCarRental()" ><b>Geri</b></button></td>
+      </tr>
+      </tbody>
+    </table>
+    
+  </div>
+</div>
 
 
-<table class = "table table-bordered col-md-1 mb-1" style="border:lightslategrey;  width:25rem">
-  <thead>
-    <tr>
-      <th><label for="validationTooltip03">Ay</label></th>
-      <th><label for="validationTooltip04">Yıl</label></th>
-      <th><label for="validationTooltip05">CVC</label></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-    <td>
-      <input type="text" class="form-control" id="validationTooltip03" [(ngModel)]="cardExpirationMonth"  required>
-      <div class="invalid-feedback">
-        Ay giriniz giriniz. (03)
-      </div></td>
-    <td>
-      <input type="text" class="form-control" id="validationTooltip04" [(ngModel)]="cardExpirationYear"  required>
-      <div class="invalid-feedback">
-        Yıl giriniz. (2025)
-      </div></td>
-    <td>
-      <input type="text" class="form-control" id="validationTooltip05" [(ngModel)]="cardCvcNumber"  required>
-      <div class="invalid-feedback">
-        CVC giriniz. (579)
-      </div></td>
-  </tr>
-  </tbody>
-</table>
 
-<table class = "table table-borderless col-md-1 mb-1" style=" width:25rem;">
-  <tbody >
-    <tr>
-    <td style="padding:0px; padding-top: 4px;"><button class="btn btn-primary" style="float: right; width: 26.8rem;" (click)="paymentRent()" >Öde</button></td>
-  </tr>
-  </tbody>
-</table>
+
+
+
+

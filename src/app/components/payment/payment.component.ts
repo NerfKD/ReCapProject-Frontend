@@ -2,7 +2,7 @@ import { isNull } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Car } from 'src/app/models/car';
+import { CarDto } from 'src/app/models/carDto';
 import { RentalDto } from 'src/app/models/rentalDto';
 import { RentWithCreditCard } from 'src/app/models/rentWithCreditCard';
 import { CarService } from 'src/app/services/car.service';
@@ -15,7 +15,7 @@ import { PaymentService } from 'src/app/services/payment.service';
 })
 export class PaymentComponent implements OnInit {
   rental: RentalDto | null;
-  car: Car | null = null;
+  car: CarDto | null = null;
   cardHoldersName: string | null = null;
   cardNumber: string | null = null;
   cardExpirationMonth: number | null = null;
@@ -45,6 +45,10 @@ export class PaymentComponent implements OnInit {
 
   getRentalToLocalStorage() {
     this.rental = JSON.parse(localStorage.getItem('rental'));
+  }
+
+  goToCarRental(){
+    this.router.navigate(['./carrental', this.activatedRoute.snapshot.params['id']]);
   }
 
   getCarById() {

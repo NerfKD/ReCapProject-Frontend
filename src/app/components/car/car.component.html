@@ -1,62 +1,67 @@
-<div class="col-md-12">
-  <input
-    type="text"
-    [(ngModel)]="filterText"
-    class="form-control"
-    id="filterTextCar"
-    placeholder="Arama ifadesi giriniz.."
-  />
+
+<div class="card">
+  <div class="card-header">
+    <div class="col-md-12">
+      <input
+        type="text"
+        [(ngModel)]="filterText"
+        class="form-control"
+        id="filterTextCar"
+        placeholder="Arama ifadesi giriniz."
+      />
+    </div>
+    
+    <table class="table-borderless col-md-12">
+      <tbody>
+        <tr class="col-md-12">
+          <td class="col-md-11">
+            <select  class="form-select" aria-label="Marka secimi" [(ngModel)]="selectedBrandId" >
+              <option [value]="0">Tüm Markalar</option>
+              <option *ngFor="let brand of brands" [value]="brand.brandId">{{brand.brandName}}</option>
+            </select>
+          </td>
+          <td class="col-md-1">
+            <div class="d-grid gap-2">
+            <button type="button" class="btn" style="background-color: #90c6eb;"  (click)="getCarsByBrand(selectedBrandId)" ><b>Filtrele</b></button>
+          </div>
+          </td>
+        </tr>
+        <tr class="col-md-12">
+          <td class="col-md-11">
+            <select class="form-select" aria-label="Renk secimi" [(ngModel)]="selectedColorId" >
+              <option [value]="0">Tüm Renkler</option>
+              <option *ngFor="let color of colors" [value]="color.colorId" >{{color.colorName}}</option>
+            </select>
+          </td>
+          <td class="col-md-1">
+            <div class="d-grid gap-2">
+            <button type="button" class="btn" style="background-color: #90c6eb;" (click)="getCarsByColor(selectedColorId)" ><b>Filtrele</b></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    <div class="card-body">
+      <div class="row row-cols-1 row-cols-md-6 g-4">
+        <div class="col" *ngFor="let car of cars | filterPipeCar: filterText">
+          <div class="card" style="background-color: #b6d5e9;" (click)="goToDetail(car.id)">
+            <img src="assets/img/rentacar.JPG" style="width: 188px; height: 100px;" class="card-img-top">
+            <div class="card-body">
+              <h2 class="card-title"><b>{{ car.brandName }} {{ car.modelYear }}</b></h2>
+              <h4 class="card-title"><b>{{ car.colorName }}</b></h4>
+              <h4 class="card-title"><b>{{ car.dailyPrice | number: "1.0-0" }} TL</b></h4>
+              <p class="card-text"><b>{{ car.description }}</b></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button type="button" class="btn btn-theme" style="background-color: #90c6eb; float: left; width: 6rem;" (click)="goToAdd()" ><b>Ekle</b></button>
+    </div>
 </div>
 
-<table class="table-borderless">
-  <tbody>
-    <tr class="col-md-12">
-      <td class="col-md-11">
-        <select  class="form-select" aria-label="Marka secimi" [(ngModel)]="selectedBrandId" >
-          <option [value]="0">Tüm Markalar</option>
-          <option *ngFor="let brand of brands" [value]="brand.brandId">{{brand.brandName}}</option>
-        </select>
-      </td>
-      <td class="col-md-1">
-        <button type="button" class="btn btn-success" (click)="getCarsByBrand(selectedBrandId)" >Filtrele</button>
-      </td>
-    </tr>
-    <tr class="col-md-12">
-      <td class="col-md-11">
-        <select class="form-select" aria-label="Renk secimi" [(ngModel)]="selectedColorId" >
-          <option [value]="0">Tüm Renkler</option>
-          <option *ngFor="let color of colors" [value]="color.colorId" >{{color.colorName}}</option>
-        </select>
-      </td>
-      <td class="col-md-1">
-        <button type="button" class="btn btn-success" (click)="getCarsByColor(selectedColorId)" >Filtrele</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
 
-<table class="table table-bordered border">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Marka</th>
-      <th>Renk</th>
-      <th>Model</th>
-      <th>Fiyat</th>
-      <th>Açıklama</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr
-      *ngFor="let car of cars | filterPipeCar: filterText"
-      (click)="goToDetail(car.id)"
-    >
-      <td>{{ car.id }}</td>
-      <td>{{ car.brandName }}</td>
-      <td>{{ car.colorName }}</td>
-      <td>{{ car.modelYear }}</td>
-      <td>{{ car.dailyPrice }}</td>
-      <td>{{ car.description }}</td>
-    </tr>
-  </tbody>
-</table>
+
+

@@ -1,42 +1,47 @@
-<div class="card" style="width: 53,5rem; height: 47rem;">
-  <div class="card-img col-md-12">
-    <div
-      id="carImageSlide"
-      class="carousel slide carousel-fade card-img"
-      data-bs-ride="carousel"
-    >
-      <div class="carousel-inner d-flex" style="height: 30rem; width: 53, 5rem">
+<div class="card" >
+  <div class="card-header" style="height: 41rem;">
+    <div class="card-img col-md-12">
+      <div
+        id="carImageSlide"
+        class="carousel slide carousel-fade card-img"
+        data-bs-ride="carousel"
+      >
         <div
-          *ngFor="let carImage of carImages; index as i; first as firstImage"
-          class="carousel-item align-self-center"
-          [ngClass]="{ active: firstImage }"
-          style="height: 100%; width: 100%"
+          class="carousel-inner d-flex"
+          style="height: 40rem; width: 53, 5rem"
         >
-          <img
-            src="{{ apiUrl }}{{ carImage.imageId }}"
-            class=""
+          <div
+            *ngFor="let carImage of carImages; index as i; first as firstImage"
+            class="carousel-item align-self-center"
+            [ngClass]="{ active: firstImage }"
             style="height: 100%; width: 100%"
-          />
-        </div>
+          >
+            <img
+              src="{{ apiUrl }}{{ carImage.imageId }}"
+              class=""
+              style="height: 100%; width: 100%"
+            />
+          </div>
 
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carImageSlide"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Geri</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carImageSlide"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">İleri</span>
-        </button>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carImageSlide"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Geri</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carImageSlide"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">İleri</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -45,18 +50,34 @@
       <b>{{ carName }}</b>
     </h1>
     <p class="card-text">{{ carModel }}</p>
-  </div>
-  <ul class="list-group list-group-flush col-md-12">
-    <li class="list-group-item"><b>Renk:</b> {{ carColor}}</li>
-    <li class="list-group-item">
-      <b>Fiyat:</b> {{ carPrice | number: "1.0-0" }} TL
-    </li>
-    <li class="list-group-item">
-      <b>Açıklama:</b> {{ carDesc }}
-    </li>
-  </ul>
-  <div class="card-body col-md-12">
-    <button type="button" class="btn btn-warning" (click)="goToCarRental()" >Kirala</button>
-    <button type="button" class="btn btn-danger" (click)="goToCars()" style="float: right;">Geri</button>
+    <p class="card-text"><b>Renk:</b> {{ carColor }}</p>
+    <p class="card-text"><b>Fiyat:</b> {{ carPrice | number: "1.0-0" }} TL</p>
+    <p class="card-text"><b>Açıklama:</b> {{ carDesc }}</p>
+</div>
+  <div class="card-footer text-center">
+    <button
+      type="button"
+      class="btn btn-theme"
+      style="background-color: #90c6eb; float: left"
+      (click)="goToCarRental()"
+    >
+      <b>Kirala</b>
+    </button>
+    <button
+      type="button"
+      class="btn btn-theme"
+      style="background-color: #90c6eb"
+      (click)="goToSet()"
+    >
+      <b>Düzenle</b>
+    </button>
+    <button
+      type="button"
+      class="btn btn-theme"
+      style="background-color: #90c6eb; float: right"
+      (click)="goToCars()"
+    >
+      <b>Geri</b>
+    </button>
   </div>
 </div>

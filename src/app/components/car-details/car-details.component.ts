@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Car } from 'src/app/models/car';
+import { CarDto } from 'src/app/models/carDto';
 import { CarImage } from 'src/app/models/carImage';
 import { CarDetailsService } from 'src/app/services/car-details.service';
 import { CarImageService } from 'src/app/services/car-image.service';
@@ -11,7 +11,7 @@ import { CarImageService } from 'src/app/services/car-image.service';
   styleUrls: ['./car-details.component.css'],
 })
 export class CarDetailsComponent implements OnInit {
-  carDetail: Car | null;
+  carDetail: CarDto | null;
   carImages: CarImage[] = [];
   carName: string;
   carModel: number;
@@ -64,5 +64,9 @@ export class CarDetailsComponent implements OnInit {
 
   goToCarRental() {
     this.router.navigate(['./carrental', this.activatedRoute.snapshot.params['id']]);
+  }
+
+  goToSet(){
+    this.router.navigate(['./carset', this.activatedRoute.snapshot.params['id']])
   }
 }

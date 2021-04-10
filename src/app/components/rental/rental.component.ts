@@ -4,7 +4,7 @@ import { RentalDto } from 'src/app/models/rentalDto';
 import { RentalService } from 'src/app/services/rental.service';
 
 import { CarDetailsService } from 'src/app/services/car-details.service';
-import { Car } from 'src/app/models/car';
+import { CarDto } from 'src/app/models/carDto';
 import { ToastrService } from 'ngx-toastr';
 import { Rental } from 'src/app/models/rental';
 
@@ -15,7 +15,7 @@ import { Rental } from 'src/app/models/rental';
 })
 export class RentalComponent implements OnInit {
   rentalsDto: RentalDto[] = [];
-  carDetail: Car | null;
+  carDetail: CarDto | null;
   dtBegin: Date | null = null;
   dtEnd: Date | null = null;
 
@@ -82,8 +82,8 @@ export class RentalComponent implements OnInit {
     this.DodatesNull();
   }
 
-  goToCars() {
-    this.router.navigate(['./cars']);
+  goToCarDetail() {
+    this.router.navigate(['./cardetail', this.activatedRoute.snapshot.params['id']]);
   }
 
   DodatesNull(){

@@ -1,5 +1,5 @@
-<ul class="list-group">
-  <li class = "list-group-item">
+<div class="card">
+  <div class="card-header">
     <input
       type="text"
       [(ngModel)]="filterText"
@@ -7,21 +7,20 @@
       id="filterTextColor"
       placeholder="Renk giriniz.."
     />
-  </li>
-
-  <li
-    (click)="setCurrentColorClear()"
-    [class]="getAllColorClass()"
-    routerLink="/cars"
-  >
-    Tüm Renkler
-  </li>
-  <li
-    (click)="setCurrentColor(color)"
-    routerLink="/cars/color/{{ color.colorId }}"
-    *ngFor="let color of colors | filterPipeColor: filterText"
-    [class]="getCurrentColorClass(color)"
-  >
-    {{ color.colorName }}
-  </li>
-</ul>
+  </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <li
+        *ngFor="let color of colors | filterPipeColor: filterText"
+        class="list-group-item"
+        style="font-size: 16px;"
+      >
+        <span><b>{{ color.colorName }}</b></span>
+        <button type="button" class="btn" style="background-color: #90c6eb; float: right;" (click)="goToDetail(color.colorId)"><b>Düzenle</b></button>
+      </li>
+    </ul>
+  </div>
+  <div class="card-footer">
+    <button type="button" class="btn" style="background-color: #90c6eb;" (click)="goToAdd()" ><b>Ekle</b></button>
+  </div>
+</div>
