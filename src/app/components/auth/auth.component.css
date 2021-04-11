@@ -1,0 +1,46 @@
+.btn-group button {
+    border-radius: 0;
+    padding-right: 22px;
+    padding-left: 22px;
+    border-top-right-radius :0.50rem;
+    border-top-left-radius :0.50rem;
+ }
+ 
+ .btn-group button:focus {
+    box-shadow: none;
+ }
+ 
+ .btn-group .dropdown-menu {
+    background-color: #90c6eb;
+    border-radius: 0;
+    border-bottom-right-radius :0.50rem;
+    border-bottom-left-radius :0.50rem;
+ }
+ 
+ .btn-group .dropdown-menu .dropdown-divider {
+    color: #000000;
+ }
+ 
+ .btn-group .dropdown-menu .dropdown-item {
+    cursor: pointer;
+    color: #000000;
+ }
+ 
+ .btn-group .dropdown-menu .dropdown-item:hover {
+   background: #000000;
+    color: #ffffff;
+ }
+ 
+ .btn-group .dropdown-menu .dropdown-item:focus, .dropdown-item:active {
+    background: #000000;
+    outline: 0;
+ }
+ 
+ .cursor-none {
+    cursor: default !important;
+ }
+ 
+ .cursor-none:hover {
+    color: #000000!important;
+    background-color: #000000;
+ }

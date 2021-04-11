@@ -1,0 +1,37 @@
+<div class="card">
+<div class="card-header">
+  <h1 class="h3 mb-3 fw-normal"><b>Kullanıcı Giriş</b></h1>
+</div>
+<div class ="card-body">
+    <form [formGroup]="loginForm">
+      <div class="form-floating">
+        <input
+          formControlName="email"
+          type="email"
+          class="form-control"
+          id="floatingInput"
+          placeholder="name@example.com"
+        />
+        <label for="floatingInput">E-posta</label>
+      </div>
+      <div class="form-floating">
+        <input
+          formControlName="password"
+          type="password"
+          class="form-control"
+          id="floatingPassword"
+          placeholder="Password"
+        />
+        <label for="floatingPassword">Parola</label>
+      </div>
+    </form>
+</div>
+<div class="card-footer">
+  <button class="w-100 btn btn-lg btn-dark" (click)="login()">
+    Giriş yap
+  </button>
+</div>
+</div>
+
+
+   

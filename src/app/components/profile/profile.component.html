@@ -1,0 +1,34 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><h1 class="title"><b>Kullanıcı</b></h1></div>
+            <div class="card-body">
+                <form [formGroup]="profileForm">
+                    <div class="form-group">
+                        <div class="mb-3">
+                            <label for="id" style="display: none;"><b>Id</b></label>
+                            <input type="number" id="id" formControlName="id" class="form-control" style="display: none;" [(ngModel)]="id" [disabled]="true"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="firstName"><b>Ad</b></label>
+                            <input type="text" id="firstName" formControlName="firstName" class="form-control" [(ngModel)]="firstName"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastName"><b>Soyad</b></label>
+                            <input type="text" id="lastName" formControlName="lastName" class="form-control" [(ngModel)]="lastName"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email"><b>Email</b></label>
+                            <input type="email" id="email" formControlName="email" class="form-control" [(ngModel)]="email"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill" style="background-color: #90c6eb;" (click)="update()"><b>Güncelle</b></button>
+                <button class="btn btn-fill" style="background-color: #90c6eb;" (click)="passwordUpdate()"><b>Şifre güncelle</b></button>
+                <button class="btn btn-fill" style="background-color: #90c6eb; float: right;" (click)="goToCars()"><b>Geri</b></button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -24,6 +24,10 @@ import { BrandAddComponent } from './components/brand-add/brand-add.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { CarSetComponent } from './components/car-set/car-set.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AuthComponent } from './components/auth/auth.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +49,10 @@ import { CarSetComponent } from './components/car-set/car-set.component';
     ColorAddComponent,
     CarAddComponent,
     CarSetComponent,
+    LoginComponent,
+    RegisterComponent,
+    AuthComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
